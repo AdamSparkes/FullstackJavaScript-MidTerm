@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+    <title>Top Rated Movies</title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+      <h1>Top Rated Movies</h1>
+
+      <section>
+        <% if (movies.length > 0) { %>
+        <ul>
+          <% movies.forEach(function(movie) { %>
+          <li>
+            <h2><a href="/movie/<%= movie.id %>"><%= movie.title %></a></h2>
+            <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+            <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
+            <p><strong>Description:</strong> <%= movie.description %></p>
+          </li>
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <p>No top-rated movies available.</p>
+        <% } %>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>
