@@ -14,7 +14,7 @@
         <ul>
           <% movies.forEach(function(movie) { %>
           <li>
-            <h2><a href="/movie/<%= movie.id %>"><%= movie.title %></a></h2>
+            <a href="/movie/<%= movie.id %>"><h2><%= movie.title %></h2></a>
             <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
             <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
             <p><strong>Description:</strong> <%= movie.description %></p>

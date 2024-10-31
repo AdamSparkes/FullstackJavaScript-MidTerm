@@ -23,21 +23,6 @@ app.get("/", (request, response) => {
   response.render("index");
 });
 
-// Movie details route
-app.get("/movie/:id", (request, response) => {
-  // Get the movie ID from the URL
-  const movieId = request.params.id;
-  // Get the movie details
-  const movie = getMovieDetailsById(movieId);
-
-  if (movie) {
-    // If the movie exists, render the details page
-    response.render("movieDetails", { movie });
-  } else {
-    // If not, render the 404 page
-    response.status(404).render("404");
-  }
-});
 
 // Upcoming movies route
 app.get("/upcoming", (req, res) => {
