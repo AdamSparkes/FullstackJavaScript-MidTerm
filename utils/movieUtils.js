@@ -7,7 +7,9 @@ const { Movies, Genres } = require("./data");
  * @returns {Array.<Movies>} - An array of movies matching the genre
  */
 function getMoviesByGenre(genre, x) {
-    // Implementation here
+
+    const filteredMovies = Movies.filter(movie => movie.genre === genre);
+    return filteredMovies.slice(0, x);e
 }
 
 /**
@@ -25,7 +27,9 @@ function getTopRatedMovies(x) {
  * @returns {Movies} - The movie object
  */
 function getMovieDetailsById(id) {
-    // Implementation here
+    
+    const movie = Movies.find(movie => movie.id === parseInt(id, 10));
+    return movie || null;
 }
 
 /**
