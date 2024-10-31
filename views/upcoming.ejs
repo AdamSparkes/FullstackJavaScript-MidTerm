@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Movies</title>
+    <!-- Add the CSS file link -->
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
-    <h1>This is a test page</h1>
+    <!-- Include common header navigation -->
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <h1>Upcoming Movies</h1>
+        <ul>
+            <% if (upcomingMovies.length > 0) { %>
+                <% upcomingMovies.forEach(movie => { %>
+                    <li>
+                        <h2><%= movie.title %></h2>
+                        <p>Release Year: <%= movie.releaseYear %></p>
+                        <p>Description: <%= movie.description %></p>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <p>No upcoming movies available</p>
+            <% } %>
+        </ul>
+    </main>
+
+    <!-- Include common footer -->
+    <%- include('partials/footer') %>
 </body>
 </html>
