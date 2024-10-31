@@ -9,9 +9,11 @@ This repository is a template for a movie collection viewing project. Use this p
 ## How to Use This Template
 
 1. **Create Your Own Repository**:
+
    - Click the "Use this template" button at the top of the repository page to create your own copy of the repository.
 
 2. **Clone Your Repository**:
+
    - After creating your repository, clone it to your local machine:
      ```bash
      git clone https://github.com/yourusername/your-repository-name.git
@@ -19,6 +21,7 @@ This repository is a template for a movie collection viewing project. Use this p
      ```
 
 3. **Install Dependencies**:
+
    - Install the necessary npm packages by running:
      ```bash
      npm install
@@ -45,6 +48,7 @@ This project displays a collection of movies, allowing users to view random movi
 ## Tasks to Complete
 
 1. **Add Functions to Movie Logic**:
+
    - You will need to complete functions to:
      - Retrieve `x` movies by genre.
      - Get the top-rated movies.
@@ -52,6 +56,7 @@ This project displays a collection of movies, allowing users to view random movi
      - Select a random movie.
 
 2. **Write Unit Tests**:
+
    - You are required to write unit tests to verify:
      - The correct number of movies is returned for a specified genre.
      - The top-rated movies are returned in the correct order.
@@ -83,4 +88,4 @@ Ensure your tests cover the core functionality of the application.
 
 ---
 
-Feel free to adjust any sections or wording to better fit your specific needs!
+Feel free to adjust any sections or wording to better fit your specific needs! yoyo
