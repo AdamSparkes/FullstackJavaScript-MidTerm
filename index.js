@@ -13,10 +13,6 @@ app.get('/', (request, response) => {
     response.render('index');
 });
 
-app.get('/movie/:id', (request, response) => {
-    //For use with links like: /movie/1
-    const movieId = request.params.id;
-});
 
 app.get('/upcoming', (req, res) => {
     // Get 5 upcoming movies (those with a null rating)
@@ -24,6 +20,21 @@ app.get('/upcoming', (req, res) => {
     
     // Render the upcoming movies page
     res.render('upcoming', { upcomingMovies });
+});
+
+app.get('/movie/:id', (req, res) => {
+    const movieId = req.params.id; // Get movie ID from URL
+    const movie = getMovieDetailsById(movieId); // Get movie details by ID
+
+    if (!movie) {
+        return res.status(404).send("Movie not found"); // Return 404 if movie not found
+    }
+
+    // Get 3 recommended movies of the same genre, excluding the current movie
+    const recommendedMovies = getMoviesByGenre(movie.genre, 3).filter(m => m.id !== movie.id);
+
+    // Render the movie details page and pass the movie and recommendations
+    res.render('movieDetails', { movie, recommendedMovies });
 });
 
 

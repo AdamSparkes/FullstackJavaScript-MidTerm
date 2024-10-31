@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><=% movie.title %> Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    
+    <main class ="main-content">
+        <h1><%= movie.title %></h1>
+        <p>Release Year: <%= movie.releaseYear %></p>
+        <p>Director: <%= movie.director %></p>
+        <p>Rating: <%= movie.rating ? movie.rating + "/10" : "Unreleased" %></p>
+        <p>Genre: <%= movie.genre %></p>
+        <p>Description: <%= movie.description %></p>
+
+        <section>
+            <h2>Recommended Movies</h2>
+            <ul>
+                <% recommendedMovies.forEach(function(recommended) { %>
+                    <li>
+                        <a href="/movie/<%= recommended.id %>">
+                            <%= recommended.title %> (Rating: <%= recommended.rating || 'N/A' %>)
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+
+    </main>
+
+    <%- include('partials/footer') %>
+    
+</body>
+</html>
