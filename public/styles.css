@@ -1,23 +1,103 @@
-/* Base styling, feel free to remove or alter */
-
 body {
-    background: linear-gradient(90deg, rgba(93,142,251,1) 0%, rgba(93,142,251,1) 50%, rgba(0,212,255,1) 100%);
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
+  background: linear-gradient(135deg, #1f4037, #99f2c8); /* Fancy colors */
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif; /* This font looks nice */
+  color: #f6f6f6;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
 }
 
 .main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-content h1 {
-    font-size: 50px;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styling the navigation menu */
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling the links in the nav */
+header nav ul li a {
+  color: #f6f6f6;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+/* Change link color on hover */
+header nav ul li a:hover {
+  color: #ffd700;
+}
+
+/* Styling the movie list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling each movie item */
+li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  transition: transform 0.2s;
+}
+
+/* Make movie items pop on hover */
+li:hover {
+  transform: scale(1.05);
+}
+
+/* Styling the movie titles */
+li h2 a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+/* Underline title on hover */
+li h2 a:hover {
+  text-decoration: underline;
+}
+
+/* Styling the movie details */
+li p {
+  color: #f0f0f0;
+}
+
+/* Styling the footer to match header */
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: center;
+  color: #f6f6f6;
 }
