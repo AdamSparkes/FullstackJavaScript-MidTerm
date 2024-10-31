@@ -54,10 +54,22 @@ function selectRandomMovieId() {
   return movie.id;
 }
 
+/**
+ * Get `x` random movies
+ * @param {number} x - The number of random movies to retrieve
+ * @returns {Array.<Movies>} - An array of random movies
+ */
+function getRandomMovies(x) {
+  // Shuffle the Movies array and get first x movies
+  const shuffled = [...Movies].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, x);
+}
+
 // Export the functions to be used in other modules
 module.exports = {
   getMoviesByGenre,
   getTopRatedMovies,
   getMovieDetailsById,
   selectRandomMovieId,
+  getRandomMovies, // Added this line
 };

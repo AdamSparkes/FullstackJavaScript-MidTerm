@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <%- include('partials/head') %>
     <title>Movie Gallery</title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
-</head>
-<body>
+  </head>
+  <body>
     <%- include('partials/header') %>
 
     <main class="main-content">
-        <h1>Movie Gallery</h1>
-        
-        <p>Welcome to the Movie Gallery! Browse our collection of movies below:</p>
+      <h1>Movie Gallery</h1>
 
-      
+      <p>
+        Welcome to the Movie Gallery! Browse our collection of movies below:
+      </p>
+
+      <% if (movies && movies.length > 0) { %>
+      <ul>
+        <% movies.forEach(function(movie) { %>
+        <li>
+          <h2><a href="/movie/<%= movie.id %>"><%= movie.title %></a></h2>
+          <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+          <p>
+            <strong>Rating:</strong> <%= movie.rating ? movie.rating + '/10' :
+            'Unrated' %>
+          </p>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No movies available.</p>
+      <% } %>
     </main>
 
-   
-</body>
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>
+  </body>
 </html>

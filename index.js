@@ -5,6 +5,7 @@ const {
   getMoviesByGenre,
   getMovieDetailsById,
   selectRandomMovieId,
+  getRandomMovies, // Import the new function
 } = require("./utils/movieUtils");
 const { Movies, Genres } = require("./utils/data");
 
@@ -19,10 +20,11 @@ app.use(express.static("public"));
 
 // Home page route
 app.get("/", (request, response) => {
-  // Render the index.ejs template
-  response.render("index");
+  // Get 9 random movies
+  const randomMovies = getRandomMovies(9);
+  // Render the index.ejs template and pass the movies
+  response.render("index", { movies: randomMovies });
 });
-
 
 // Upcoming movies route
 app.get("/upcoming", (req, res) => {
@@ -35,19 +37,21 @@ app.get("/upcoming", (req, res) => {
   res.render("upcoming", { upcomingMovies });
 });
 
-app.get('/movie/:id', (req, res) => {
-    const movieId = req.params.id; // Get movie ID from URL
-    const movie = getMovieDetailsById(movieId); // Get movie details by ID
+app.get("/movie/:id", (req, res) => {
+  const movieId = req.params.id; // Get movie ID from URL
+  const movie = getMovieDetailsById(movieId); // Get movie details by ID
 
-    if (!movie) {
-        return res.status(404).send("Movie not found"); // Return 404 if movie not found
-    }
+  if (!movie) {
+    return res.status(404).send("Movie not found"); // Return 404 if movie not found
+  }
 
-    // Get 3 recommended movies of the same genre, excluding the current movie
-    const recommendedMovies = getMoviesByGenre(movie.genre, 3).filter(m => m.id !== movie.id);
+  // Get 3 recommended movies of the same genre, excluding the current movie
+  const recommendedMovies = getMoviesByGenre(movie.genre, 3).filter(
+    (m) => m.id !== movie.id
+  );
 
-    // Render the movie details page and pass the movie and recommendations
-    res.render('movieDetails', { movie, recommendedMovies });
+  // Render the movie details page and pass the movie and recommendations
+  res.render("movieDetails", { movie, recommendedMovies });
 });
 
 // Top-rated movies route
