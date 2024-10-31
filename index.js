@@ -18,6 +18,15 @@ app.get('/movie/:id', (request, response) => {
     const movieId = request.params.id;
 });
 
+app.get('/upcoming', (req, res) => {
+    // Get 5 upcoming movies (those with a null rating)
+    const upcomingMovies = Movies.filter(movie => movie.rating === null).slice(0, 5);
+    
+    // Render the upcoming movies page
+    res.render('upcoming', { upcomingMovies });
+});
+
+
 //Add remaining routes here
 
 const port = 3000;

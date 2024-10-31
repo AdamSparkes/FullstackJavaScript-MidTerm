@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Movies</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+        <h1>Upcoming Movies</h1>
+
+        <section>
+            <% if (upcomingMovies.length > 0) { %>
+                <ul>
+                    <% upcomingMovies.forEach(function(movie) { %>
+                        <li>
+                            <h2><%= movie.title %></h2>
+                            <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+                            <p><strong>Description:</strong> <%= movie.description %></p>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No upcoming movies available.</p>
+            <% } %>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %> <!-- Common footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

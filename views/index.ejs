@@ -6,6 +6,17 @@
     <body>
         <main class="main-content">
             <h1>Movie Gallery</h1>
+        
+            app.get('/upcoming', (req, res) => {
+                // Get 5 upcoming movies (those with a null rating)
+                const upcomingMovies = Movies.filter(movie => movie.rating === null).slice(0, 5);
+                
+                // Render the upcoming movies page
+                res.render('upcoming', { upcomingMovies });
+            });
+        
+        
+        
         </main>
     </body>
 </html>
