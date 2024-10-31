@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --watch index.js",
-    "test": "jest"
+    "test": "mocha __tests__/utils/movieUtils.test.js"
   },
   "author": "Matthew English",
   "license": "MIT",
@@ -15,6 +15,8 @@
   },
   "keywords": [],
   "devDependencies": {
-    "jest": "^29.7.0"
+    "babel-jest": "^29.7.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.8.2"
   }
 }
